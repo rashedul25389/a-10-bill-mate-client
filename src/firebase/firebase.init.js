@@ -12,13 +12,6 @@ const firebaseConfig = {
     storageBucket: import.meta.env.VITE_STORAGEBUCKET,
     messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
     appId: import.meta.env.VITE_APPID,
-
-    // apiKey: 'AIzaSyBMUJVSD_uGzuHNfwNOV5JMcGiwfTOFxJQ',
-    // authDomain: 'bill-mate-780dc.firebaseapp.com',
-    // projectId: 'bill-mate-780dc',
-    // storageBucket: 'bill-mate-780dc.firebasestorage.app',
-    // messagingSenderId: '1006398142601',
-    // appId: '1:1006398142601:web:2299f6fc2c0f490d1aee58',
 };
 
 // Initialize Firebase
