@@ -10,25 +10,31 @@ export default function MyBills() {
     const { user, loading } = useContext(AuthContext);
     const { theme } = useOutletContext();
     const [myBills, setMyBills] = useState([]);
+    const [dataLoading, setDataLoading] = useState(true);
 
     // Fetch bills for logged-in user
     useEffect(() => {
         if (!loading && user?.email) {
+            setDataLoading(true);
             axios
                 .get(
                     `https://a-10-bill-mate-server.vercel.app/api/myBills?email=${user.email}`
                 )
                 .then((res) => setMyBills(res.data))
-                .catch((err) => console.error(err));
+                .catch((err) => console.error(err))
+                .finally(() => setDataLoading(false));
         }
     }, [user, loading]);
 
-    if (loading)
+    // Loading Spinner
+    if (loading || dataLoading) {
         return (
-            <p className="text-center mt-10 transition-colors duration-500">
-                Loading user info...
-            </p>
+            <div className="flex justify-center items-center h-[60vh]">
+                <div className="w-12 h-12 border-4 border-t-blue-500 border-gray-200 rounded-full animate-spin"></div>
+            </div>
         );
+    }
+
     if (!user)
         return (
             <p className="text-center mt-10 transition-colors duration-500">
@@ -92,7 +98,6 @@ export default function MyBills() {
                 bill.date?.split('T')[0]
             }" />
             <style>
-                /* Theme-aware input styling */
                 .swal2-input {
                     color: ${
                         theme === 'light' ? '#111827' : '#f3f4f6'
@@ -104,8 +109,6 @@ export default function MyBills() {
                         theme === 'light' ? '#d1d5db' : '#4b5563'
                     } !important;
                 }
-
-                /* Calendar icon color */
                 input[type="date"]::-webkit-calendar-picker-indicator {
                     cursor: pointer;
                     filter: ${
@@ -156,7 +159,7 @@ export default function MyBills() {
         });
     };
 
-    //  Delete Bill
+    // Delete Bill
     const handleDelete = (id) => {
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -218,7 +221,7 @@ export default function MyBills() {
                 My Paid Bills
             </h2>
 
-            <div className="text-center mb-6 transition-colors duration-500 space-y-2">
+            <div className="text-center mb-6 space-y-2">
                 <p className="text-sm sm:text-base">
                     Total Bills:{' '}
                     <span className="font-semibold">{myBills.length}</span>
@@ -237,29 +240,29 @@ export default function MyBills() {
             </div>
 
             {myBills.length === 0 ? (
-                <p className="text-center mt-10 text-gray-500 text-sm sm:text-base transition-colors duration-500">
+                <p className="text-center mt-10 text-gray-500 text-sm sm:text-base">
                     You haven't paid any bills yet.
                 </p>
             ) : (
                 <div className="overflow-x-auto">
                     <table
-                        className={`w-full border table-auto text-sm sm:text-base transition-colors duration-500 ${
+                        className={`w-full border table-auto text-sm sm:text-base ${
                             theme === 'light' ? 'bg-white' : 'bg-gray-800'
                         }`}>
                         <thead
-                            className={`transition-colors duration-500 ${
+                            className={`${
                                 theme === 'light'
                                     ? 'bg-gray-200'
                                     : 'bg-gray-700'
                             }`}>
                             <tr>
-                                <th className="p-1 sm:p-2 border">Username</th>
-                                <th className="p-1 sm:p-2 border">Email</th>
-                                <th className="p-1 sm:p-2 border">Amount</th>
-                                <th className="p-1 sm:p-2 border">Address</th>
-                                <th className="p-1 sm:p-2 border">Phone</th>
-                                <th className="p-1 sm:p-2 border">Date</th>
-                                <th className="p-1 sm:p-2 border">Action</th>
+                                <th className="p-2 border">Username</th>
+                                <th className="p-2 border">Email</th>
+                                <th className="p-2 border">Amount</th>
+                                <th className="p-2 border">Address</th>
+                                <th className="p-2 border">Phone</th>
+                                <th className="p-2 border">Date</th>
+                                <th className="p-2 border">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -267,40 +270,36 @@ export default function MyBills() {
                                 <tr
                                     key={bill._id}
                                     className="text-center hover:bg-gray-100 dark:hover:bg-gray-400 transition-colors duration-500">
-                                    <td className="border p-1 sm:p-2">
+                                    <td className="border p-2">
                                         {bill.username}
                                     </td>
-                                    <td className="border p-1 sm:p-2">
-                                        {bill.email}
-                                    </td>
-                                    <td className="border p-1 sm:p-2">
+                                    <td className="border p-2">{bill.email}</td>
+                                    <td className="border p-2">
                                         ৳{' '}
                                         {Number(
                                             bill.amount || 0
                                         ).toLocaleString()}
                                     </td>
-                                    <td className="border p-1 sm:p-2">
+                                    <td className="border p-2">
                                         {bill.address}
                                     </td>
-                                    <td className="border p-1 sm:p-2">
-                                        {bill.phone}
-                                    </td>
-                                    <td className="border p-1 sm:p-2">
+                                    <td className="border p-2">{bill.phone}</td>
+                                    <td className="border p-2">
                                         {new Date(
                                             bill.date
                                         ).toLocaleDateString()}
                                     </td>
-                                    <td className="border p-1 sm:p-2 space-x-1 sm:space-x-2 max-md:space-y-1">
+                                    <td className="border p-2 space-x-2">
                                         <button
                                             onClick={() => handleUpdate(bill)}
-                                            className="bg-green-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded hover:bg-green-600 transition-colors duration-500 max-md:w-full">
+                                            className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                                             Update
                                         </button>
                                         <button
                                             onClick={() =>
                                                 handleDelete(bill._id)
                                             }
-                                            className="bg-red-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded hover:bg-red-600 transition-colors duration-500 max-md:w-full">
+                                            className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
                                             Delete
                                         </button>
                                     </td>

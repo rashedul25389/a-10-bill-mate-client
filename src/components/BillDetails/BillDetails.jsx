@@ -30,12 +30,14 @@ export default function BillDetails() {
             .finally(() => setLoading(false));
     }, [id]);
 
-    if (loading)
+    // Loading Spinner
+    if (loading) {
         return (
-            <p className="text-center mt-10 transition-colors duration-500">
-                Loading...
-            </p>
+            <div className="flex justify-center items-center h-[60vh]">
+                <div className="w-12 h-12 border-4 border-t-blue-500 border-gray-200 rounded-full animate-spin"></div>
+            </div>
         );
+    }
 
     if (notFound) return <NotFound theme={theme} />;
 
@@ -105,7 +107,7 @@ export default function BillDetails() {
                 <PayBillModal
                     bill={bill}
                     user={user}
-                    theme={theme} // pass theme to modal
+                    theme={theme}
                     onClose={() => setShowModal(false)}
                 />
             )}

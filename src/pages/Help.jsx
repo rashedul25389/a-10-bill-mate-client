@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 export default function Help() {
     const { theme } = useOutletContext();
     const [openIndex, setOpenIndex] = useState(null);
-
+    const [loading, setLoading] = useState(true);
     const faqs = [
         {
             q: 'How to pay a bill?',
@@ -21,15 +21,28 @@ export default function Help() {
         },
     ];
 
-    //Theme colors
+    useEffect(() => {
+        const timer = setTimeout(() => setLoading(false), 500);
+        return () => clearTimeout(timer);
+    }, []);
+
+    const toggleFAQ = (index) => {
+        setOpenIndex(openIndex === index ? null : index);
+    };
+
+    // Theme colors
     const bgColor = theme === 'light' ? 'bg-sky-100' : 'bg-gray-900';
     const textColor = theme === 'light' ? 'text-gray-900' : 'text-gray-100';
     const subTextColor = theme === 'light' ? 'text-gray-700' : 'text-gray-300';
     const shadow = theme === 'light' ? 'shadow-md' : 'shadow-lg';
 
-    const toggleFAQ = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center h-[60vh]">
+                <div className="w-12 h-12 border-4 border-t-blue-500 border-gray-200 rounded-full animate-spin"></div>
+            </div>
+        );
+    }
 
     return (
         <div className="max-w-4xl mx-auto mt-10 p-4 transition-colors duration-500">
