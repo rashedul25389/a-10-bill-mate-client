@@ -53,6 +53,7 @@ export default function AddBill() {
                 ? 'bg-sky-200 text-gray-900'
                 : 'bg-gray-900 text-gray-100'
         }`}>
+            {/* Loading */}
             {loading && (
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center rounded-xl z-50">
                     <div className="w-12 h-12 border-4 border-t-4 border-gray-200 border-t-blue-500 rounded-full animate-spin"></div>

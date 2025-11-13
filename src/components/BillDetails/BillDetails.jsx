@@ -4,6 +4,7 @@ import axios from 'axios';
 import PayBillModal from '../PayBillModal/PayBillModal';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { useOutletContext } from 'react-router-dom';
+import NotFound from '../../pages/NotFound';
 
 export default function BillDetails() {
     const { id } = useParams();
@@ -80,7 +81,6 @@ export default function BillDetails() {
                 <strong>Date:</strong> {billDate.toLocaleDateString()}
             </p>
 
-            {/* Pay Bill Button */}
             <button
                 disabled={!isCurrentMonth}
                 onClick={() => setShowModal(true)}
@@ -105,7 +105,7 @@ export default function BillDetails() {
                 <PayBillModal
                     bill={bill}
                     user={user}
-                    theme={theme}
+                    theme={theme} // pass theme to modal
                     onClose={() => setShowModal(false)}
                 />
             )}

@@ -44,6 +44,7 @@ export default function Bills() {
             });
     }, [category]);
 
+    // Loading
     if (loading) {
         return (
             <div className="flex justify-center items-center h-[60vh]">
@@ -80,7 +81,7 @@ export default function Bills() {
                     ))}
                 </select>
             </div>
-            {/* Bills Grid */}
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {bills.map((bill) => {
                     const cat = categories.find(
