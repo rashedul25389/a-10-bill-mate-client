@@ -10,7 +10,8 @@ import {
 } from 'firebase/auth';
 import { auth } from '../firebase/firebase.init';
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
+export { AuthContext };
 
 export default function AuthProvider({ children }) {
     const [user, setUser] = useState(() => {
