@@ -28,8 +28,34 @@ const router = createBrowserRouter([
             { path: 'bills', element: <Bills /> },
             { path: 'login', element: <Login /> },
             { path: 'register', element: <Register /> },
-
-
+            {
+                path: 'mypaybills',
+                element: (
+                    <PrivateRoute>
+                        <MyBills />
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: 'add-bill',
+                element: (
+                    <PrivateRoute>
+                        <AddBill />
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: 'profile',
+                element: (
+                    <PrivateRoute>
+                        <Profile />
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: '*',
+                element: <NotFound />,
+            },
         ],
     },
 ]);
