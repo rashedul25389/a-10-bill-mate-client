@@ -31,7 +31,7 @@ export default function Profile() {
         0
     );
 
-    // Theme color
+    // Theme colors
     const bgColor = theme === 'light' ? 'bg-sky-100' : 'bg-gray-900';
     const cardBg = theme === 'light' ? 'bg-white' : 'bg-gray-800';
     const textColor = theme === 'light' ? 'text-gray-900' : 'text-gray-100';
@@ -83,7 +83,6 @@ export default function Profile() {
                     </div>
                 </div>
 
-                {/* Paid Bills List */}
                 {myBills.length > 0 && (
                     <div className="space-y-4">
                         <h3

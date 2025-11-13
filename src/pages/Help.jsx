@@ -21,7 +21,7 @@ export default function Help() {
         },
     ];
 
-    // Theme colors
+    //Theme colors
     const bgColor = theme === 'light' ? 'bg-sky-100' : 'bg-gray-900';
     const textColor = theme === 'light' ? 'text-gray-900' : 'text-gray-100';
     const subTextColor = theme === 'light' ? 'text-gray-700' : 'text-gray-300';

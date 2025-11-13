@@ -51,7 +51,7 @@ const Register = () => {
 
             setTimeout(() => {
                 navigate('/');
-            }, 1000); // 1 second delay for toast
+            }, 1000);
         } catch (err) {
             setError(err.message);
             toast.error(err.message);
@@ -101,7 +101,6 @@ const Register = () => {
                         className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-900"
                     />
 
-                    {/* Password Field with Eye Toggle */}
                     <div className="relative">
                         <input
                             type={showPassword ? 'text' : 'password'}

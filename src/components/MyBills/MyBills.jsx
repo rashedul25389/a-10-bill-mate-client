@@ -36,14 +36,12 @@ export default function MyBills() {
             </p>
         );
 
-    // Total amount calculation
     const totalAmount = myBills.reduce(
         (sum, b) => sum + Number(b.amount || 0),
         0
     );
 
-    //  Download Report (PDF)
-
+    // Download Report (PDF)
     const downloadPDF = () => {
         if (myBills.length === 0) {
             Swal.fire('No bills to download!', '', 'info');
@@ -76,7 +74,7 @@ export default function MyBills() {
         doc.save('My_Bills_Report.pdf');
     };
 
-    //  Update Bill (SweetAlert Form)
+    // Update Bill
     const handleUpdate = async (bill) => {
         const { value: formValues } = await Swal.fire({
             title: 'Update Bill',
@@ -238,7 +236,6 @@ export default function MyBills() {
                 </button>
             </div>
 
-            {/* Bills Table */}
             {myBills.length === 0 ? (
                 <p className="text-center mt-10 text-gray-500 text-sm sm:text-base transition-colors duration-500">
                     You haven't paid any bills yet.

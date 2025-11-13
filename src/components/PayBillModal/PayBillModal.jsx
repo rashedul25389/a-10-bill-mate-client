@@ -43,7 +43,7 @@ export default function PayBillModal({ bill, onClose, theme }) {
         }
     };
 
-    // Theme based dynamic colors
+    // Theme dynamic colors
     const isLight = theme === 'light';
     const bgColor = isLight ? 'bg-white' : 'bg-gray-900';
     const textColor = isLight ? 'text-gray-900' : 'text-gray-100';
@@ -59,7 +59,6 @@ export default function PayBillModal({ bill, onClose, theme }) {
                 className={`relative w-full max-w-md rounded-2xl shadow-2xl border ${borderColor} overflow-y-auto my-8 ${bgColor}`}
                 style={{ maxHeight: '90vh' }}
                 onClick={(e) => e.stopPropagation()}>
-                {/* Close Button */}
                 <div className="absolute top-3 right-3">
                     <button
                         onClick={onClose}

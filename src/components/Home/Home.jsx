@@ -161,6 +161,7 @@ export default function Home() {
                 </div>
             </div>
 
+            {/* Recent Bills */}
             <div>
                 <h2
                     className={`text-3xl font-bold mb-6 text-center ${

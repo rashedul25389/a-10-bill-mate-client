@@ -6,6 +6,7 @@ import {
     GoogleAuthProvider,
     signInWithPopup,
     onAuthStateChanged,
+    updateProfile,
 } from 'firebase/auth';
 import { auth } from '../firebase/firebase.init';
 
@@ -38,6 +39,12 @@ export default function AuthProvider({ children }) {
         return signInWithPopup(auth, provider);
     };
 
+    // Update user profile
+    const updateUserProfile = (profile) => {
+        if (!auth.currentUser) return;
+        return updateProfile(auth.currentUser, profile);
+    };
+
     // Logout
     const logOut = () => {
         setLoading(true);
@@ -67,6 +74,7 @@ export default function AuthProvider({ children }) {
         createUser,
         signInUser,
         googleLogin,
+        updateUserProfile,
         logOut,
     };
 

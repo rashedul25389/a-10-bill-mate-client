@@ -26,7 +26,7 @@ const Login = () => {
             toast.success('✅ Login successful!');
             setTimeout(() => {
                 navigate(from, { replace: true });
-            }, 1000); // 1 second delay, toast দেখানোর জন্য
+            }, 1000);
         } catch (err) {
             setError(err.message);
             toast.error(err.message);
