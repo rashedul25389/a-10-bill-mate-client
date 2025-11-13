@@ -127,7 +127,9 @@ export default function Profile() {
                                 </p>
                                 <p className={subTextColor}>
                                     <strong>Date:</strong>{' '}
-                                    {new Date(bill.date).toLocaleDateString()}
+                                    {new Date(bill.date).toLocaleDateString(
+                                        'en-GB'
+                                    )}
                                 </p>
                                 {bill.address && (
                                     <p className={subTextColor}>

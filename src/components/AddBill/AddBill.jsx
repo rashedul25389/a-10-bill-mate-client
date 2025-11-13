@@ -9,6 +9,11 @@ export default function AddBill() {
     const { theme } = useOutletContext();
     const navigate = useNavigate();
 
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+
     const [formData, setFormData] = useState({
         title: '',
         category: '',
@@ -16,7 +21,7 @@ export default function AddBill() {
         location: '',
         description: '',
         image: '',
-        date: new Date().toISOString().split('T')[0],
+        date: `${yyyy}-${mm}-${dd}`,
         email: user?.email || '',
     });
 
@@ -55,8 +60,8 @@ export default function AddBill() {
         }`}>
             {/* Loading */}
             {loading && (
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center rounded-xl z-50">
-                    <div className="w-12 h-12 border-4 border-t-4 border-gray-200 border-t-blue-500 rounded-full animate-spin"></div>
+                <div className="flex justify-center items-center my-4">
+                    <div className="w-10 h-10 border-4 border-t-blue-500 border-gray-200 rounded-full animate-spin"></div>
                 </div>
             )}
 

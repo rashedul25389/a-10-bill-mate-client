@@ -47,6 +47,7 @@ export default function BillDetails() {
         billDate.getMonth() === now.getMonth() &&
         billDate.getFullYear() === now.getFullYear();
 
+
     return (
         <div
             className={`max-w-2xl mx-auto mt-10 border rounded-lg p-6 shadow transition-colors duration-500 ${
@@ -80,7 +81,7 @@ export default function BillDetails() {
                 <strong>Amount:</strong> ৳{bill.amount}
             </p>
             <p className="transition-colors duration-500">
-                <strong>Date:</strong> {billDate.toLocaleDateString()}
+                <strong>Date:</strong> {billDate.toLocaleDateString('en-GB')}
             </p>
 
             <button

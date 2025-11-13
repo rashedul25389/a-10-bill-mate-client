@@ -60,7 +60,7 @@ export default function MyBills() {
 
         doc.setFontSize(12);
         doc.text(`Total Bills: ${myBills.length}`, 14, 25);
-        doc.text(`Total Amount: ৳${totalAmount.toLocaleString()}`, 14, 32);
+        doc.text(`Total Amount: Tk-${totalAmount.toLocaleString()}`, 14, 32);
 
         const tableData = myBills.map((b) => [
             b.username,
@@ -68,7 +68,7 @@ export default function MyBills() {
             `৳${Number(b.amount || 0).toLocaleString()}`,
             b.address,
             b.phone,
-            new Date(b.date).toLocaleDateString(),
+            new Date(b.date).toLocaleDateString('en-GB'),
         ]);
 
         autoTable(doc, {
@@ -289,17 +289,17 @@ export default function MyBills() {
                                             bill.date
                                         ).toLocaleDateString()}
                                     </td>
-                                    <td className="border p-2 space-x-2">
+                                    <td className="border p-2 space-x-2 max-md:space-y-2">
                                         <button
                                             onClick={() => handleUpdate(bill)}
-                                            className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
+                                            className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 max-md:w-full">
                                             Update
                                         </button>
                                         <button
                                             onClick={() =>
                                                 handleDelete(bill._id)
                                             }
-                                            className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+                                            className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 max-md:w-full">
                                             Delete
                                         </button>
                                     </td>
