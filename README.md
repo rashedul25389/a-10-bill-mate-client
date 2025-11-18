@@ -47,15 +47,17 @@ BILL MATE is a **Utility Bill Management System** that allows users to manage th
 ## 💻 Installation & Setup (Local)
 1. Clone the repository:  
 ```bash
-git clone https://github.com/your-username/bill-mate.git
+git clone https://github.com/rashedul25389/a-10-bill-mate-server.git
+and (install the same way)
+git clone https://github.com/rashedul25389/a-10-bill-mate-client.git
 
-2.Navigate to the project folder:
+2. Navigate to the project folder:
 cd bill-mate
 
-3.Install dependencies:
+3. Install dependencies:
 npm install
 
-4.Create a .env file and add your Firebase config
+4. Create a .env file and add your Firebase config
 
-5.Run the project:
-npm start
+5. Run the project:
+npm run dev
