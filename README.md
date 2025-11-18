@@ -1,8 +1,9 @@
 # BILL MATE 🧾
 **Utility Bill Management System**
 <p align="center">
-  <img src="https://i.ibb.co.com/F4ZkCbrP/Screenshot-2025-11-19-012450.png" alt="Hero" width="100%" />
+  <img src="https://i.ibb.co/F4ZkCbrP/Screenshot-2025-11-19-012450.png" alt="BILL MATE Screenshot" width="100%" />
 </p>
+
 
 
 ## 🔗 Live Site
