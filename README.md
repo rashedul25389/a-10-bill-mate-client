@@ -1,9 +1,9 @@
 # BILL MATE 🧾
 **Utility Bill Management System**
-
 <p align="center">
-  <img src="https://i.ibb.co/your-screenshot.png" alt="BILL MATE Screenshot" width="80%" />
+  <img src="https://i.ibb.co.com/F4ZkCbrP/Screenshot-2025-11-19-012450.png" alt="Hero" width="100%" />
 </p>
+
 
 ## 🔗 Live Site
 Check out the live demo: [BILL MATE](https://bill-mate-780dc.web.app)
