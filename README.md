@@ -1,26 +1,60 @@
-# My Utility Bill Management Website name is BILL MATE
+# BILL MATE 🧾
+**Utility Bill Management System**
 
-[Live Site url](https://bill-mate-780dc.web.app)
+<p align="center">
+  <img src="https://i.ibb.co/your-screenshot.png" alt="BILL MATE Screenshot" width="80%" />
+</p>
 
-# Description
+## 🔗 Live Site
+Check out the live demo: [BILL MATE](https://bill-mate-780dc.web.app)
 
-This is a **Utility Bill Management System** that allows users to manage their monthly bills including Electricity, Gas, Water, and Internet. Users can securely register, login, add, and view bills in a clean and responsive interface.
+---
 
-# Features
+## 📝 Project Overview
+BILL MATE is a **Utility Bill Management System** that allows users to manage their monthly bills for **Electricity, Gas, Water, and Internet**. Users can securely register, login, add, and view bills in a clean, responsive interface with **theme support** (light & dark mode).  
 
--   **User Authentication:** Register, login, and logout functionality with email/password and Google social login.
--   **Add & Manage Bills:** Users can add new bills with details like amount, date, category, location, description, and image.
--   **Responsive Design:** Fully responsive layout compatible with mobile, tablet, and desktop devices.
--   **Theme Support:** Light and dark mode toggle for better user experience.
--   **Secure Data Handling:** Only authenticated users can access their personal bills, ensuring privacy and security.
+---
 
-# Technologies Used
+## 🚀 Features
+- **User Authentication:** Register, login, logout with email/password and Google social login  
+- **Add & Manage Bills:** Add new bills with amount, date, category, location, description, and image  
+- **Responsive Design:** Works seamlessly on mobile, tablet, and desktop devices  
+- **Theme Support:** Light and dark mode toggle  
+- **Secure Data Handling:** Only authenticated users can access personal bills  
 
--   Frontend: React.js, Tailwind CSS, DaisyUI
--   Backend: Node.js, Express.js
--   Database: MongoDB
--   Authentication: Firebase Authentication
+---
 
-# Live Demo
+## 🛠 Technologies Used
+**Frontend:** React.js, Tailwind CSS, DaisyUI  
+**Backend:** Node.js, Express.js  
+**Database:** MongoDB  
+**Authentication:** Firebase Authentication  
 
-Check out the live demo [https://bill-mate-780dc.web.app]
+---
+
+## 📦 Dependencies
+- **React Router DOM** – for page routing  
+- **Axios** – for HTTP requests  
+- **React Hook Form** – for form handling  
+- **Firebase** – for authentication  
+- **DaisyUI** – UI components  
+- **Tailwind CSS** – styling  
+- **React Icons** – icons library  
+
+---
+
+## 💻 Installation & Setup (Local)
+1. Clone the repository:  
+```bash
+git clone https://github.com/your-username/bill-mate.git
+
+2.Navigate to the project folder:
+cd bill-mate
+
+3.Install dependencies:
+npm install
+
+4.Create a .env file and add your Firebase config
+
+5.Run the project:
+npm start
